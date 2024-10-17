@@ -15,11 +15,8 @@ produto = html_site.find("input", class_="lWzCpb a61j6")
 
 valor_produto = produto.get("value")
 
-wb = openpyxl.Workbook()
+wb = openpyxl.load_workbook("cotacao_dolar.xlsx")
 sheet = wb.active
-sheet.title = "Cotação do Dólar"
-
-sheet.append(["Data e Hora", "Valor da Cotação"])
 
 data_hora_atual = datetime.now().strftime("%d-%m-%Y")
 sheet.append([data_hora_atual, valor_produto])
